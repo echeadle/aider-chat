@@ -36,7 +36,7 @@ def find_identical_files(hash_file):
                 print(f" - {path}")
 
 if __name__ == "__main__":
-    directory_to_check = "your_directory_here"
+    directory_to_check = "/home/echeadle/Aug_2024"
     hash_output_file = "file_hashes.txt"
 
     store_file_hashes(directory_to_check, hash_output_file)
