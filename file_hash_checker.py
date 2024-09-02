@@ -13,10 +13,11 @@ def store_file_hashes(directory, output_file):
     """Recursively traverse the directory, hash files, and store the hashes."""
     with open(output_file, 'w') as f:
         for root, _, files in os.walk(directory):
-            for file in files:
-                file_path = os.path.join(root, file)
-                file_hash = hash_file(file_path)
-                f.write(f"{file_hash} {file_path}\n")
+            if '.venv' not in root:
+                for file in files:
+                    file_path = os.path.join(root, file)
+                    file_hash = hash_file(file_path)
+                    f.write(f"{file_hash} {file_path}\n")
 
 def find_identical_files(hash_file):
     """Read the hash file and find identical files."""
